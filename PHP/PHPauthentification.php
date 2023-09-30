@@ -19,11 +19,11 @@
             $_SESSION['prenom'] = $ligne['prenom'];
 
             header("Location: index.php");
-            exit; //quitter le script après la redirection
+            exit; //quitte le script après la redirection
         } else {
             echo "Votre email ou mot de passe est incorrect.";
             header("Location: connexion.php");
-            exit; //quitter le script après la redirection
+            exit; //quitte le script après la redirection
         }
     }
 ?>
