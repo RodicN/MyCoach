@@ -1,0 +1,186 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
+}
+
+
+
+/* Header */
+header {
+    background-image: url("../images/header.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0px 10px 35px rgba(133, 133, 133, 0.5);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 70px;
+}
+
+.header-image {
+    width: 30%;
+}
+
+header img {
+    max-width: 75%;
+}
+
+.header-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-content .header-text{
+    width: 50%;
+    font-size: 44px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 15px, 15px, 30px lightgrey;
+}
+
+.header-button a:hover {
+    background-color: lightgray;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Présentation */
+.presentation {
+    height: 100vh;
+}
+
+.presentation h2 {
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+}
+
+.texte-et-image {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.texte-et-image img {
+    margin-right: 20px;
+    width: 300px;
+}
+
+.texte-et-image .texte {
+    width: 800px;
+}
+
+.texte-et-image .texte p {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 15px 15px 30px rgb(214, 214, 214);
+    margin-top: 0;
+}
+
+.texte-et-image .texte h3 {
+    margin-bottom: 0;
+    margin-left: 2px;
+}
+
+/* Programmes */
+.lesProgrammes{
+    height: 130vh;
+    background-image: url("../images/header2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.lesProgrammes h2 {
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    padding: 50px;
+    font-size: xx-large;
+}
+
+.activites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.programme {
+    width: 300px;
+    margin: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 15px 15px 30px  rgb(121, 119, 119);
+}
+
+.programme h3 {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 1250px){
+    .lesProgrammes
+    {
+        height: 200vh;
+    }
+}
+
+@media screen and(max-width: 1200px) {
+    .texte-et-image .texte p {
+        width: 500px;
+
+    }
+
+    .texte-et-image .texte h3{
+        width: 500px;
+    }
+
+    .texte-et-image img{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .texte-et-image img {
+        display: none;
+    }
+
+    .presentation h2 {
+        padding: 30px;
+    }
+}
+
+
+
+@media screen and (max-width: 963px){
+    .lesProgrammes{
+        height: 370vh;
+    }
+}
+
+@media screen and (max-width: 760px){
+    .presentation h2 {
+        padding: 10px;
+    }
+}
