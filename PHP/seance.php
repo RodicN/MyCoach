@@ -20,7 +20,7 @@
 <body>
     <!-- Barre de navigation -->
     <nav>
-        <div class="nav-left"></div>     <!-- Espace vide au centre -->
+        <div class="nav-left"></div>     <!-- Espace vide à gauche -->
         <div class="nav-center">
             <ul>
                 <li><a href="index.php">Accueil</a></li>
