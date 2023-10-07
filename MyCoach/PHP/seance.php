@@ -22,9 +22,7 @@
     <?php
         include("PHPnavigation.php");
     ?>
-
-
-
+    
     <h1>Séances</h1>
  
     <!-- Séances -->
@@ -32,6 +30,7 @@
         <form method="post" action="">
             <select id="programmeSelect" name="selectionProgramme">
                 <option value="*">--- Choisir un programme ---</option>
+                <option value="all">Voir toutes les séances</option>
                 <?php
                     $reqSQL = "SELECT DISTINCT idProgramme, libelle FROM programme";
 
@@ -54,18 +53,29 @@
         <?php
             // Vérifier si le formulaire a été soumis
             if (isset($_POST['selectionProgramme'])) {
-                // Récupérer l'identifiant du programme sélectionné depuis le formulaire
-                $selectionProgrammeId = $_POST['selectionProgramme'];
+                // Récupérer la valeur sélectionnée dans le menu déroulant
+                $selectionProgramme = $_POST['selectionProgramme'];
 
-                // Requête SQL pour récupérer les séances du programme sélectionné
-                $reqSQL = "SELECT libelle, jour, niveau, adresse, CP, Ville, Salle, heureDebut, heureFin 
-                        FROM seance, programme, niveau, lieu, jours
-                        WHERE seance.idProgramme = programme.idProgramme
-                        AND seance.idNiveau = niveau.idNiveau
-                        AND seance.idLieu = lieu.idLieu
-                        AND seance.idJours = jours.idJours
-                        AND seance.idProgramme = $selectionProgrammeId
-                        ORDER BY jour ASC";
+                if ($selectionProgramme === 'all') {
+                    // Si "Voir toutes les séances" est sélectionné, récupérer toutes les séances
+                    $reqSQL = "SELECT libelle, jour, niveau, adresse, CP, Ville, Salle, heureDebut, heureFin 
+                                FROM seance, programme, niveau, lieu, jours
+                                WHERE seance.idProgramme = programme.idProgramme
+                                AND seance.idNiveau = niveau.idNiveau
+                                AND seance.idLieu = lieu.idLieu
+                                AND seance.idJours = jours.idJours
+                                ORDER BY jour ASC";
+                } else {
+                    // Sinon, récupérer les séances du programme sélectionné
+                    $reqSQL = "SELECT libelle, jour, niveau, adresse, CP, Ville, Salle, heureDebut, heureFin 
+                                FROM seance, programme, niveau, lieu, jours
+                                WHERE seance.idProgramme = programme.idProgramme
+                                AND seance.idNiveau = niveau.idNiveau
+                                AND seance.idLieu = lieu.idLieu
+                                AND seance.idJours = jours.idJours
+                                AND seance.idProgramme = $selectionProgramme
+                                ORDER BY jour ASC";
+                }
 
                 // Exécution de la requête SQL
                 $result = $connexion->query($reqSQL);
@@ -88,6 +98,7 @@
                     echo '<p>Aucune séance disponible pour le programme sélectionné.</p>';
                 }
             }
+
         ?>
     </section>
 
