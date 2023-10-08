@@ -29,7 +29,7 @@
         <br>
         <button type="submit" name="valider">S'inscrire</button>
     </form>
-
+    <!-- Lien vers la page de connexion -->
     <p>Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous ici</a>.</p>
 </body>
 </html>

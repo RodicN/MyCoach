@@ -12,7 +12,6 @@
 </html>
 
 <?php
-
     echo '<nav>';
         echo '<div class="nav-left"></div>'; 
         echo '<div class="nav-center">';
@@ -34,5 +33,4 @@
             echo '</div>';
         echo '</div>';
     echo '</nav>';
-
 ?>

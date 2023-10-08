@@ -17,7 +17,6 @@
         <?php
             include("PHPnavigation.php");
         ?>
-
         
         <h1>MyCoach</h1>
         <div class="header-content">

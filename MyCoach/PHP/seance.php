@@ -42,7 +42,7 @@
                         $idProgramme = $ligne['idProgramme'];
 
                         echo "<option value='$idProgramme'>$libelle</option>";
-
+                        
                         $ligne = $result->fetch();
                     }
                 ?>
