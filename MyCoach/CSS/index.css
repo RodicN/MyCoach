@@ -5,8 +5,6 @@ body {
     background-color: rgb(240, 240, 240);
 }
 
-
-
 /* Header */
 header {
     background-image: url("../images/header.jpeg");
@@ -44,12 +42,14 @@ header img {
     flex-wrap: wrap;
 }
 
-.header-content .header-text{
+.header-content .header-text {
     width: 50%;
     font-size: 44px;
     border: 1px solid lightgray;
     border-radius: 10px;
-    box-shadow: 15px, 15px, 30px lightgrey;
+    box-shadow: 15px 15px 30px lightgrey;
+    backdrop-filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.150);
 }
 
 .header-button a:hover {
@@ -139,6 +139,7 @@ header img {
     margin-top: 10px;
 }
 
+/* Responsive */
 @media screen and (max-width: 1250px){
     .lesProgrammes
     {
