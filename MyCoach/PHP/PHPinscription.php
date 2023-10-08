@@ -4,7 +4,7 @@
     require("../PHP/connexionBdd.php");
 
     if(isset($_POST['valider'])){
-        $nom = htmlspecialchars($_POST['nom']); // htmlspecialchars empêche l'insertion de code html
+        $nom = htmlspecialchars($_POST['nom']); // htmlspecialchars empêche l'injection de code html
         $prenom = htmlspecialchars($_POST['prenom']);
         $email = htmlspecialchars($_POST['email']);
         $motDePasse = md5($_POST['motdepasse']); // md5 : hachage du mot de passe

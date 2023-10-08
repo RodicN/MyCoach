@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
 <?php
 
     echo '<nav>';
-        echo '<div class="nav-left"></div>';
+        echo '<div class="nav-left"></div>'; 
         echo '<div class="nav-center">';
             echo '<ul>';
                 echo '<li><a href="index.php">Accueil</a></li>';

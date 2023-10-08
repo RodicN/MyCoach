@@ -4,7 +4,7 @@
     require("../PHP/connexionBdd.php");
 
     if(isset($_POST['valider'])){
-        $email = htmlspecialchars($_POST['email']); // htmlspecialchars empêche l'insertion de code html
+        $email = htmlspecialchars($_POST['email']); // htmlspecialchars empêche l'injection de code html
         $motdepasse = md5($_POST['motdepasse']); // md5 : hachage du mot de passe
 
         $reqSQL = $connexion->prepare("SELECT * FROM utilisateurs WHERE email = ? AND motDePasse = ?");
