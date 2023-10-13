@@ -23,9 +23,8 @@
         include("PHPnavigation.php");
     ?>
     
-    <h1>Séances</h1>
- 
     <!-- Séances -->
+    <h1>Séances</h1>
     <section class="seances">
         <form method="post" action="">
             <select id="programmeSelect" name="selectionProgramme">

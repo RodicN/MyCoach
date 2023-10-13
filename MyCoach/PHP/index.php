@@ -18,6 +18,7 @@
             include("PHPnavigation.php");
         ?>
         
+        <!-- Contenu du header -->
         <h1>MyCoach</h1>
         <div class="header-content">
             <div class="header-text">
@@ -27,6 +28,7 @@
                 <img src="../images/image-header.jpeg" alt="MyCoach Logo">
             </div>
         </div>
+        
     </header>
 
     <!-- Présentation -->
