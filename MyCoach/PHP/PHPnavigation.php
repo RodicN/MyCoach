@@ -24,8 +24,8 @@
             echo '<div class="utilisateur-info">';
                 if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
                     // Si l'utilisateur est connecté, affiche le bouton de déconnexion
-                    echo '<a href="PHPdeconnexion.php"><button>Se déconnecter</button></a>';
                     echo '<span>' . $_SESSION['prenom'] . ' ' . $_SESSION['nom'] . '</span>';
+                    echo '<a href="PHPdeconnexion.php"><button>Se déconnecter</button></a>';
                 } else {
                     // Sinon, affiche le lien de connexion
                     echo '<a href="connexion.php">Connexion</a>';

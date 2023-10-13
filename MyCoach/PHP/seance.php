@@ -97,7 +97,6 @@
                     echo '<p>Aucune séance disponible pour le programme sélectionné.</p>';
                 }
             }
-
         ?>
     </section>
 

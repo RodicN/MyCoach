@@ -64,20 +64,23 @@ nav {
     color: grey;
 }
 
+/* utilisation de uiverse.io pour le design du bouton */
 .utilisateur-info button{
-    padding: 15px 25px;
+    padding: 5px 15px;
     border: unset;
     border-radius: 15px;
     color: #212121;
     z-index: 1;
-    background: #e8e8e8;
+    background: lightgrey;
     position: relative;
-    font-weight: 1000;
-    font-size: 17px;
+    font-weight: 700;
+    font-size: 16px;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .utilisateur-info button::before {
@@ -96,7 +99,7 @@ nav {
 }
 
 .utilisateur-info button:hover {
-    color: #e8e8e8;
+    color: lightgrey;
 }
    
 .utilisateur-info button:hover::before {

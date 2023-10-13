@@ -5,8 +5,8 @@
 
     if(isset($_POST['valider'])){
         $nom = htmlspecialchars($_POST['nom']); // htmlspecialchars empêche l'injection de code html
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $email = htmlspecialchars($_POST['email']);
+        $prenom = htmlspecialchars($_POST['prenom']); // htmlspecialchars empêche l'injection de code html
+        $email = htmlspecialchars($_POST['email']); // htmlspecialchars empêche l'injection de code html
         $motDePasse = md5($_POST['motdepasse']); // md5 : hachage du mot de passe
 
         $reqSQL = $connexion->prepare("INSERT INTO utilisateurs (nom, prenom, email, motDePasse) VALUES (?, ?, ?, ?)");

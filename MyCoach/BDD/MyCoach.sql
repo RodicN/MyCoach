@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : ven. 29 sep. 2023 à 16:54
--- Version du serveur : 10.4.28-MariaDB
--- Version de PHP : 8.2.4
+-- Hôte : 127.0.0.1:3306
+-- Généré le : ven. 13 oct. 2023 à 10:23
+-- Version du serveur : 8.0.31
+-- Version de PHP : 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `MyCoach`
+-- Base de données : `mycoach`
 --
 
 -- --------------------------------------------------------
@@ -27,10 +27,12 @@ SET time_zone = "+00:00";
 -- Structure de la table `jours`
 --
 
-CREATE TABLE `jours` (
-  `idJours` int(11) NOT NULL,
-  `jour` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `jours`;
+CREATE TABLE IF NOT EXISTS `jours` (
+  `idJours` int NOT NULL AUTO_INCREMENT,
+  `jour` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idJours`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `jours`
@@ -51,13 +53,15 @@ INSERT INTO `jours` (`idJours`, `jour`) VALUES
 -- Structure de la table `lieu`
 --
 
-CREATE TABLE `lieu` (
-  `idLieu` int(11) NOT NULL,
-  `Ville` varchar(25) NOT NULL,
-  `adresse` varchar(100) NOT NULL,
-  `CP` int(11) NOT NULL,
-  `Salle` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `lieu`;
+CREATE TABLE IF NOT EXISTS `lieu` (
+  `idLieu` int NOT NULL AUTO_INCREMENT,
+  `Ville` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
+  `adresse` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `CP` int NOT NULL,
+  `Salle` varchar(35) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idLieu`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `lieu`
@@ -74,10 +78,12 @@ INSERT INTO `lieu` (`idLieu`, `Ville`, `adresse`, `CP`, `Salle`) VALUES
 -- Structure de la table `niveau`
 --
 
-CREATE TABLE `niveau` (
-  `idNiveau` int(11) NOT NULL,
-  `niveau` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `niveau`;
+CREATE TABLE IF NOT EXISTS `niveau` (
+  `idNiveau` int NOT NULL AUTO_INCREMENT,
+  `niveau` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idNiveau`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `niveau`
@@ -94,10 +100,12 @@ INSERT INTO `niveau` (`idNiveau`, `niveau`) VALUES
 -- Structure de la table `programme`
 --
 
-CREATE TABLE `programme` (
-  `idProgramme` int(11) NOT NULL,
-  `libelle` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `programme`;
+CREATE TABLE IF NOT EXISTS `programme` (
+  `idProgramme` int NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idProgramme`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `programme`
@@ -117,16 +125,22 @@ INSERT INTO `programme` (`idProgramme`, `libelle`) VALUES
 -- Structure de la table `seance`
 --
 
-CREATE TABLE `seance` (
-  `idSeance` int(11) NOT NULL,
-  `idProgramme` int(11) NOT NULL,
-  `idNiveau` int(11) NOT NULL,
-  `idLieu` int(11) NOT NULL,
-  `idJours` int(11) NOT NULL,
-  `libelleSeance` varchar(50) NOT NULL,
+DROP TABLE IF EXISTS `seance`;
+CREATE TABLE IF NOT EXISTS `seance` (
+  `idSeance` int NOT NULL AUTO_INCREMENT,
+  `idProgramme` int NOT NULL,
+  `idNiveau` int NOT NULL,
+  `idLieu` int NOT NULL,
+  `idJours` int NOT NULL,
+  `libelleSeance` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `heureDebut` time NOT NULL,
-  `heureFin` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `heureFin` time NOT NULL,
+  PRIMARY KEY (`idSeance`),
+  KEY `idProgramme` (`idProgramme`) USING BTREE,
+  KEY `idLieu` (`idLieu`) USING BTREE,
+  KEY `idNiveau` (`idNiveau`),
+  KEY `idJours` (`idJours`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `seance`
@@ -158,107 +172,23 @@ INSERT INTO `seance` (`idSeance`, `idProgramme`, `idNiveau`, `idLieu`, `idJours`
 -- Structure de la table `utilisateurs`
 --
 
-CREATE TABLE `utilisateurs` (
-  `idUtilisateur` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `motDePasse` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `utilisateurs`;
+CREATE TABLE IF NOT EXISTS `utilisateurs` (
+  `idUtilisateur` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `motDePasse` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idUtilisateur`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nom`, `prenom`, `email`, `motDePasse`) VALUES
-(1, 'Doe', 'John', 'john@example.com', 'motdepasse1'),
-(2, 'Smith', 'Jane', 'jane@example.com', 'motdepasse2'),
-(3, 'Brown', 'Tom', 'tom@example.com', 'motdepasse3'),
-(4, 'N', 'Rodic', 'rodic.nou@gmail.com', 'test');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `jours`
---
-ALTER TABLE `jours`
-  ADD PRIMARY KEY (`idJours`);
-
---
--- Index pour la table `lieu`
---
-ALTER TABLE `lieu`
-  ADD PRIMARY KEY (`idLieu`);
-
---
--- Index pour la table `niveau`
---
-ALTER TABLE `niveau`
-  ADD PRIMARY KEY (`idNiveau`);
-
---
--- Index pour la table `programme`
---
-ALTER TABLE `programme`
-  ADD PRIMARY KEY (`idProgramme`);
-
---
--- Index pour la table `seance`
---
-ALTER TABLE `seance`
-  ADD PRIMARY KEY (`idSeance`),
-  ADD KEY `idProgramme` (`idProgramme`) USING BTREE,
-  ADD KEY `idLieu` (`idLieu`) USING BTREE,
-  ADD KEY `idNiveau` (`idNiveau`),
-  ADD KEY `idJours` (`idJours`) USING BTREE;
-
---
--- Index pour la table `utilisateurs`
---
-ALTER TABLE `utilisateurs`
-  ADD PRIMARY KEY (`idUtilisateur`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `jours`
---
-ALTER TABLE `jours`
-  MODIFY `idJours` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT pour la table `lieu`
---
-ALTER TABLE `lieu`
-  MODIFY `idLieu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `niveau`
---
-ALTER TABLE `niveau`
-  MODIFY `idNiveau` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `programme`
---
-ALTER TABLE `programme`
-  MODIFY `idProgramme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT pour la table `seance`
---
-ALTER TABLE `seance`
-  MODIFY `idSeance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT pour la table `utilisateurs`
---
-ALTER TABLE `utilisateurs`
-  MODIFY `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+(8, 'Nou', 'Rodic', 'rodic.nou@gmail.com', '098f6bcd4621d373cade4e832627b4f6'),
+(9, 'Dupont', 'Mark', 'mark.dupont@gmail.com', 'c5ff3518aaf39e15799a104f6aae4006');
 
 --
 -- Contraintes pour les tables déchargées
