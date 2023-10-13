@@ -64,7 +64,7 @@ nav {
     color: grey;
 }
 
-button {
+.utilisateur-info button{
     padding: 15px 25px;
     border: unset;
     border-radius: 15px;
@@ -79,8 +79,8 @@ button {
     transition: all 250ms;
     overflow: hidden;
 }
-   
-button::before {
+
+.utilisateur-info button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -94,11 +94,15 @@ button::before {
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms
 }
-   
-button:hover {
+
+.utilisateur-info button:hover {
     color: #e8e8e8;
 }
    
-button:hover::before {
+.utilisateur-info button:hover::before {
     width: 100%;
+}
+
+span{
+    color: lightgrey;
 }
