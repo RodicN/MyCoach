@@ -16,7 +16,7 @@ nav {
 }
 
 .nav-left {
-    width: 200px;
+    width: 300px;
     padding-left: 15px;
 }
 
@@ -47,12 +47,13 @@ nav {
 .nav-right{
     display: flex;
     justify-content: right;
-    width: 200px;
-    padding-right: 15px;
+    width: 300px;
 }
 
-.utilsateur-info span{
-    color: white;
+.utilisateur-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .nav-right a{
@@ -67,6 +68,7 @@ nav {
 /* utilisation de uiverse.io pour le design du bouton */
 .utilisateur-info button{
     padding: 5px 15px;
+    margin-left: 15px;
     border: unset;
     border-radius: 15px;
     color: #212121;
