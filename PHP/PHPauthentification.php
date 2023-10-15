@@ -30,7 +30,7 @@
             // Affiche un message d'erreur si l'email ou le mot de passe sont incorrects
             echo "Votre email ou mot de passe est incorrect.";
             header("Location: connexion.php");
-            exit; // Quitte le script après la redirection
+            exit; // Quitte le script après la redirection 
         }
     }
 ?>
